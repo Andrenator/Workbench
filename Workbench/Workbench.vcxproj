@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Euler22.cpp" />
+    <ClCompile Include="Markovnames.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EAEE0915-409C-42A0-8C54-CC5AF88C3032}</ProjectGuid>
