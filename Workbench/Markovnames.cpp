@@ -30,7 +30,7 @@ int main()
 	names[0] = "";
 	statsheet probs[26];
 	int counter = 0;
-	myfile.open("H:\\euler.txt");
+	myfile.open("..\\euler.txt");
 	char c;
 	bool flag;
 
