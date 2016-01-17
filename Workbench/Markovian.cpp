@@ -26,7 +26,7 @@ int main()
 	vector<char> stream;
 	letter myarray[27];
 	for (int i = 0; i < 27; i++)
-		myarray[i].initialize;
+		myarray[i].initialize();
 	myfile.open("..//euler.txt");
 	char c;
 
@@ -52,9 +52,9 @@ int main()
 			myarray[(int)stream[i - 1] - 65].alpha[(int)stream[i] - 65]++;
 	}
 
-	for (int i = 0, j; i < 20;)
+	for (int i = 0; i < 20;i++)
 	{
-
+		cout << i << " ";
 	}
 
 	return 0;
