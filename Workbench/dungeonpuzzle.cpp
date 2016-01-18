@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <time.h>
 using namespace std;
 
 struct gem
@@ -23,6 +24,7 @@ void switchgems(gem* a, gem* b)
 
 int main()
 {
+	srand(time(NULL));
 	gem myarray[40];
 	for (int i = 0; i < 7; i++)
 		myarray[i].color = "red";
@@ -34,11 +36,14 @@ int main()
 		myarray[i].color = "black";
 	for (int i = 28; i < 35; i++)
 		myarray[i].color = "white";
-	for (int i = 35; i <= 40; i++)
+	for (int i = 35; i < 40; i++)
 		myarray[i].color = "gold";
 
+	for (int i = 0; i < 39; i++)
+		switchgems(&myarray[i], &myarray[i + 1 + rand() % (40 - i - 1)]);
+
 	for (int i = 0; i < 40; i++)
-		switchgems(&myarray[i], &myarray[i + 1 + rand() % (40 - i)]);
+		cout << "gem " << i + 1 << ": " << myarray[i].color << endl;
 
 	return 0;
 }

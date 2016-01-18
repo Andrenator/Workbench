@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dungeonpuzzle.cpp">
+    <ClCompile Include="Markovian.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
