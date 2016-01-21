@@ -1,5 +1,5 @@
 #include <iostream>
-#define WIDTH 20  //the #define function basically replaces all instances of WIDTH with 10
+#define WIDTH 20  //the #define function basically replaces all instances of WIDTH with 20
 #define HEIGHT 20
 using namespace std;
 
