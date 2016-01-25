@@ -1,40 +1,39 @@
 #include <iostream>
 #include <time.h>
+#define DICE 2
 using namespace std;
 
-bool verifydice(int* a, int* b)
+bool avgcheck(int* a)
 {
-	for (int i = 0; i < 6; i++)
-	{
-		for (int j = 0; j < 6; j++)
-		{
-			if (a[i] == b[j])
-				return false;
-		}
-	}
-
-	int counter = 0;
-
-	for (int i = 0; i < 6; i++)
-	{
-		for (int j = 0; j < 6; j++)
-		{
-			if (a[i] > b[j])
-				counter++;
-		}
-	}
-	if (counter == 18)
-		return true;
-	else
+	if (*(a) + *(a + 1) + *(a + 2) + *(a + 3) + *(a + 4) + *(a + 5) != (DICE*21 + 36*(DICE*DICE/2-DICE/2))/DICE)
 		return false;
+	else
+		return true;
+}
+bool isdescending(int* a, int length)
+{
+	for (int i = 0; i < length -1; i++)
+	{
+		if (*(a + i) > *(a + i + 1))
+			return false;
+	}
+	return true;
+}
+void lexicograph(int* a)
+{
+
 }
 
 int main()
 {
-	int one[] = { 1,10,14,23,27,36 };
-	int two[] = { 2,9,15,22,28,35 };
+	int sides[DICE * 6];
+	for (int i = 0; i < DICE * 6; i++)
+		sides[i] = i + 1;
 
-	cout << verifydice(one, two);
+	for (; !isdescending(sides, DICE*6); lexicograph(sides))
+	{
+
+	}
 
 	return 0;
 }
