@@ -18,6 +18,7 @@ bool checkavg(int* myarray)
 	else
 		return false;
 }
+bool fair(int *a, int *b)
 
 int main()
 {
