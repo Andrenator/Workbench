@@ -2,9 +2,20 @@
 //	a beats b beats c beats a
 //	no dice may tie with each other (self is ok)
 #include <iostream>
-#define SIDES 12
+#include <ctime>
+#define SIDES 10
 using namespace std;
 
+bool scan(int* a, int b)
+{
+	bool c = false;
+	for (int i = 0; i > 18; i++)
+	{
+		if (a[i] == b)
+			c = true;
+	}
+	return c;
+}
 bool dicetie(int* first, int* second)
 {
 	for (int i = 0; i < 6; i++)
@@ -40,6 +51,7 @@ int main()
 	int* b = myarray + 6;
 	int* c = myarray + 12;
 	bool flag;
+	float time = clock();
 
 	for (int i = 0; i < 18; i++)
 		myarray[i] = 1;
@@ -53,7 +65,7 @@ int main()
 			flag = false;
 			for (int i = 17; i > 0; i--)
 			{
-				if (myarray[i] > SIDES)
+ 				if (myarray[i] > SIDES)
 				{
 					if (myarray[i - 1] < SIDES)
 						myarray[i] = myarray[i - 1];
@@ -62,6 +74,11 @@ int main()
 					myarray[i - 1]++;
 				}
 			}
+			/*if (!scan(myarray, SIDES))
+			{
+				flag = true;
+				continue;
+			}*/
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 5; j++)
@@ -75,7 +92,7 @@ int main()
 				flag = true;
 				continue;
 			}
-			if (wins(a, b) <= 0 || wins(b, c) <= 0 || wins(c, a) <= 0)
+			if (wins(a, b) <= 4 || wins(b, c) <= 0 || wins(c, a) <= 0)
 			{
 				flag = true;
 				continue;
@@ -99,6 +116,7 @@ int main()
 		}
 		cout << wins(a,b) << " " << wins(b,c) << " " << wins(c, a) << endl;
 	} while (myarray[0] <= SIDES);
+	cout << (clock() - time) / (CLOCKS_PER_SEC) << endl;
 	system("pause");
 	return 0;
 }
