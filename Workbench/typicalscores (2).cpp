@@ -3,8 +3,8 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
-#define LOOPS 1000000
-#define DICE 4
+#define LOOPS 10000
+#define DICE 3
 #define SIDES 20
 #define IGNORE 1
 using namespace std;

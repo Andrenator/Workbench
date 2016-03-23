@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="transitivetriangle.cpp">
+    <ClCompile Include="typicalscores (2).cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

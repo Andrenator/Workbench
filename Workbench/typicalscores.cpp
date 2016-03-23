@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <iomanip>
 #define LOOPS 10000
-#define DICE 4
+#define DICE 3
 using namespace std;
 
 int rollstat();
