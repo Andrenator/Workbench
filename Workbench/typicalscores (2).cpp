@@ -3,10 +3,10 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
-#define LOOPS 10000
-#define DICE 3
+#define LOOPS 100000
+#define DICE 2
 #define SIDES 20
-#define IGNORE 1
+#define IGNORE 0
 using namespace std;
 
 int rollstat();
