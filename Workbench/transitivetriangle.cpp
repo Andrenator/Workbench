@@ -3,9 +3,23 @@
 //	no dice may tie with each other (self is ok)
 #include <iostream>
 #include <ctime>
+<<<<<<< HEAD
 #define SIDES 6
+=======
+#define SIDES 10
+>>>>>>> origin/master
 using namespace std;
 
+bool scan(int* a, int b)
+{
+	bool c = false;
+	for (int i = 0; i > 18; i++)
+	{
+		if (a[i] == b)
+			c = true;
+	}
+	return c;
+}
 bool dicetie(int* first, int* second)
 {
 	for (int i = 0; i < 6; i++)
@@ -56,7 +70,7 @@ int main()
 			flag = false;
 			for (int i = 17; i > 0; i--)
 			{
-				if (myarray[i] > SIDES)
+ 				if (myarray[i] > SIDES)
 				{
 					if (myarray[i - 1] < SIDES)
 						myarray[i] = myarray[i - 1];
@@ -65,6 +79,11 @@ int main()
 					myarray[i - 1]++;
 				}
 			}
+			/*if (!scan(myarray, SIDES))
+			{
+				flag = true;
+				continue;
+			}*/
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 5; j++)
@@ -78,7 +97,11 @@ int main()
 				flag = true;
 				continue;
 			}
+<<<<<<< HEAD
 			if (wins(a, b) <= 6)
+=======
+			if (wins(a, b) <= 4 || wins(b, c) <= 0 || wins(c, a) <= 0)
+>>>>>>> origin/master
 			{
 				flag = true;
 				continue;
@@ -102,7 +125,11 @@ int main()
 		}
 		cout << wins(a,b) << " " << wins(b,c) << " " << wins(c, a) << endl;
 	} while (myarray[0] <= SIDES);
+<<<<<<< HEAD
 	cout << (clock() - time) / CLOCKS_PER_SEC << endl;
+=======
+	cout << (clock() - time) / (CLOCKS_PER_SEC) << endl;
+>>>>>>> origin/master
 	system("pause");
 	return 0;
 }
