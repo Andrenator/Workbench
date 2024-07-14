@@ -32,20 +32,23 @@ with open('generated-files\\poll_results.csv', 'w', newline='', encoding='utf-8'
     # Initialize CSV writer
     csv_writer = csv.writer(csvfile)
     
-    # Write header
+    # Write headers
     headers = ['Poll Title', 'Poll ID']
     # Add poll options as headers
     if poll_data:
-        poll_options = poll_data[0]['poll_options']
-        for option in poll_options:
-            headers.append(option['value'])
+        for entry in poll_data:
+            poll_options = entry['poll_options']
+            for option in poll_options:
+                if option['value'] not in headers:
+                    headers.append(option['value'])
     csv_writer.writerow(headers)
     
     # Write poll data
     for poll in poll_data:
         row = [poll['title'], poll['id']]
-        for option in poll['poll_options']:
-            row.append(option['vote_count'])
+        option_vote_count = {option['value']: option['vote_count'] for option in poll['poll_options']}
+        for header in headers[2:]:  # Skip 'Poll Title' and 'Poll ID' in headers
+            row.append(option_vote_count.get(header, 0))  # Default to 0 if option not found in this poll
         csv_writer.writerow(row)
 
 print("CSV file 'poll_results.csv' created successfully.")
