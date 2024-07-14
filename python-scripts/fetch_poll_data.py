@@ -2,17 +2,16 @@ import requests
 import csv
 import json
 
-# Replace 'YOUR_API_KEY' with your actual API key
-API_KEY = 'YOUR_API_KEY'
+API_KEY = '123'
 BASE_URL = 'https://api.strawpoll.com/v3/polls/'
 
-# Read poll IDs from a text file
-with open('poll_ids.txt', 'r') as file:
+# Read poll IDs from the text file
+with open('data-files\\poll_ids.txt', 'r') as file:
     poll_ids = file.read().split(',')
 
 # Function to fetch poll data
 def fetch_poll_data(poll_id):
-    url = f'{BASE_URL}{poll_id}/results'
+    url = f'{BASE_URL}{poll_id}'
     headers = {
         'Accept': 'application/json',
         'X-API-Key': API_KEY
@@ -23,11 +22,13 @@ def fetch_poll_data(poll_id):
 # Fetch data for each poll
 poll_data = []
 for poll_id in poll_ids:
+    print("Fetching", poll_id)
     data = fetch_poll_data(poll_id.strip())
+    # print(data)
     poll_data.append(data)
 
 # Create the CSV file
-with open('poll_results.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('generated-files\\poll_results.csv', 'w', newline='', encoding='utf-8') as csvfile:
     # Initialize CSV writer
     csv_writer = csv.writer(csvfile)
     
